@@ -1,5 +1,7 @@
 package colecoes.test;
 
+import colecoes.dominio.Smartphone;
+
 public class EqualsTest01 {
     public static void main(String[] args) {
         Smartphone s1 = new Smartphone("1ABC1", "iPhone");

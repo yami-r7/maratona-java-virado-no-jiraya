@@ -1,4 +1,4 @@
-package colecoes.test;
+package colecoes.dominio;
 
 public class Smartphone {
     private String serialNumber;
