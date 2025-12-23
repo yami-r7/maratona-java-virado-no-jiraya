@@ -1,6 +1,6 @@
 package colecoes.test;
 
-import colecoes.dominio.Time;
+import colecoes.dominio.Game;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -33,6 +33,6 @@ public class ListSortTest01 {
 
         System.out.println(dinheiros);
 
-        new Time(null, null, 0);
+        new Game(null, null, 0);
     }
 }
