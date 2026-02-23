@@ -4,9 +4,18 @@ import colecoes.dominio.Game;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
-public class TimeSortTest01 {
+class GameByIdComparator implements Comparator<Game> {
+
+    @Override
+    public int compare(Game game1, Game game2) {
+        return game1.getId().compareTo(game2.getId());
+    }
+}
+
+public class GameSortTest01 {
     public static void main(String[] args) {
         List<Game> games = new ArrayList<>(6);
         games.add(new Game(5L, "Minecraft", 19.99));
@@ -20,7 +29,13 @@ public class TimeSortTest01 {
         }
 
         Collections.sort(games);
+        System.out.println("--------------------");
 
+        for (Game game : games) {
+            System.out.println(game);
+        }
+
+        Collections.sort(games, new GameByIdComparator());
         System.out.println("--------------------");
 
         for (Game game : games) {
