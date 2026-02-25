@@ -14,6 +14,14 @@ class SmartphoneMarcaComparator implements Comparator<Smartphone> {
     }
 }
 
+class GamePrecoComparator implements Comparator<Game> {
+
+    @Override
+    public int compare(Game o1, Game o2) {
+        return Double.compare(o1.getPreco(), o2.getPreco());
+    }
+}
+
 public class NavigableSetTest01 {
     public static void main(String[] args) {
 
@@ -21,7 +29,7 @@ public class NavigableSetTest01 {
         Smartphone smartphone = new Smartphone("123", "Nokia");
         set.add(smartphone);
 
-        NavigableSet<Game> games = new TreeSet<>();
+        NavigableSet<Game> games = new TreeSet<>(new GamePrecoComparator());
         games.add(new Game(5L, "Minecraft", 19.99, 5));
         games.add(new Game(1L, "Clash Royalle", 4.49, 0));
         games.add(new Game(4L, "GTA SA", 29.90, 2));
@@ -32,5 +40,20 @@ public class NavigableSetTest01 {
             System.out.println(game);
         }
 
+        Game pes = new Game(21L, "Pro Evolution Soccer", 3.2, 5);
+
+        // lower <
+        // floor <=
+        // higher >
+        // ceiling >=
+        System.out.println("------------");
+        System.out.println(games.lower(pes));
+        System.out.println(games.floor(pes));
+        System.out.println(games.higher(pes));
+        System.out.println(games.ceiling(pes));
+
+        System.out.println(games.size());
+        System.out.println(games.pollLast());
+        System.out.println(games.size());
     }
 }
