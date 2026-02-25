@@ -6,6 +6,7 @@ public class Game implements Comparable<Game> {
     private Long id;
     private String nome;
     private double preco;
+    private int quantidade;
 
     public Game(Long id, String nome, double preco) {
         Objects.requireNonNull(id, "Id não pode ser null");
@@ -13,6 +14,11 @@ public class Game implements Comparable<Game> {
         this.id = id;
         this.nome = nome;
         this.preco = preco;
+    }
+
+    public Game(Long id, String nome, double preco, int quantidade) {
+        this(id, nome, preco);
+        this.quantidade = quantidade;
     }
 
     @Override
@@ -51,6 +57,14 @@ public class Game implements Comparable<Game> {
         this.preco = preco;
     }
 
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
     @Override
     public int compareTo(Game outroGame) {
 //        if (this.id < outroGame.getId()) {
@@ -72,6 +86,7 @@ public class Game implements Comparable<Game> {
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", preco=" + preco +
+                ", quantidade=" + quantidade +
                 '}';
     }
 }
